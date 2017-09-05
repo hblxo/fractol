@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 22:39:27 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/05 05:16:28 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/05 06:31:15 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,10 @@ int		zoomlol(int keycode, int x, int y, t_env *e)
 	y = y * d.max + e->b.min;
 	if (keycode == 1)
 	{
-/*		e->a.min = x - ((x - e->a.min) * 0.9);
-		e->a.max = x + ((e->a.max - x) * 0.9);
-		e->b.min = y - ((y - e->b.min) * 0.9);
-		e->b.max = y + ((e->b.max - y) * 0.9);*/
 		e->a.min = x + ((e->a.min - x) * 0.9);
 		e->a.max = x + ((e->a.max - x) * 0.9);
 		e->b.min = y + ((e->b.min - y) * 0.9);
 		e->b.max = y + ((e->b.max - y) * 0.9);
-/*		e->a.min = e->a.min * 0.9;
-		e->a.max = e->a.max * 0.9;
-		e->b.min = e->b.min * 0.9;
-		e->b.max = e->b.max * 0.9; */
 	}
 	if (keycode == 2)
 	{
@@ -48,14 +40,6 @@ int		zoomlol(int keycode, int x, int y, t_env *e)
 		e->a.max = x + ((e->a.max - x) / 0.9);
 		e->b.min = y + ((e->b.min - y) / 0.9);
 		e->b.max = y + ((e->b.max - y) / 0.9);
-/*		e->a.min = x - ((x - e->a.min) / 0.9);
-		e->a.max = x + ((e->a.max - x) / 0.9);
-		e->b.min = y - ((y - e->b.min) / 0.9);
-		e->b.max = y + ((e->b.max - y) / 0.9);
-		e->a.min = e->a.min / 0.9;
-		e->a.max = e->a.max / 0.9;
-		e->b.min = e->b.min / 0.9;
-		e->b.max = e->b.max / 0.9;*/
 	}
 	return (0);
 }

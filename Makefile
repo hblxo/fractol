@@ -6,7 +6,7 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/03 05:02:18 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/05 03:38:17 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/05 06:29:42 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,6 +23,7 @@ INCS		=	-I $(INC_DIR) -I $(LIB_PATH)
 
 SRC_DIR		=	srcs
 SRC			=	fractol.c	\
+				fractales.c \
 				math.c		\
 				putpixel.c	\
 				control.c

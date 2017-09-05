@@ -6,49 +6,14 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:04:53 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/05 04:04:19 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/05 06:28:55 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>//rrr
-
-void	mandelbrot(t_env *e)
-{
-	int		i = 0;
-	int		x = 0;
-	int		y = 0;
-	t_cplx	z = {0, 0};
-	t_cplx	c;
-
-	e->iter_max = 255;
-	while (y < WIN_HEIGHT)
-	{
-		x = 0;
-		while (x < WIN_WIDTH)
-		{
-			i = 0;
-			z = (t_cplx){0, 0};
-			c = (t_cplx){(double)x / (double)WIN_WIDTH * (e->a.max - e->a.min) + e->a.min,
-						 (double)y / (double)WIN_HEIGHT * (e->b.max - e->b.min) + e->b.min};
-			while (i < e->iter_max && (z.re * z.re + z.im * z.im) <= 4)
-			{
-				z = cplx_add(cplx_mult(z, z), c); 
-				i++;
-			}
-			if (i < e->iter_max)
-				ft_putpixel(e, x, y, i);
-			x++;
-		}
-		y++;
-	}
-}
 
 int		drw(t_env *e)
 {
-//	mlx_destroy_image(e->mlx, e->img);
-//	e->img = mlx_new_image(e->mlx, WIN_WIDTH, WIN_HEIGHT);
-//	mlx_clear_window(e->mlx, e->win);
 	ft_clear_image(e, 0);
 	mandelbrot(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
@@ -70,11 +35,9 @@ int		main(int ac, char **av)
 	e.a.max = 1;
 	e.b.min = -2;
 	e.b.max = 1;
-//	mandelbrot(&e, e.min, e.max);
 	mlx_mouse_hook(e.win, zoomlol, &e);
 	mlx_hook(e.win, 2, 0, key_hook, &e);
 	mlx_loop_hook(e.mlx, drw, &e);
-//	mlx_put_image_to_window(e.mlx, e.win, e.img, 0, 0);
 	mlx_loop(e.mlx);
 	return (0);
 }
