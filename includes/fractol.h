@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:02:39 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/05 01:21:47 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/07 07:01:13 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@
 # include "mlx.h"
 # include <stdio.h>
 
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 800
 
 typedef unsigned int	t_uint;
 
 typedef struct			s_point
 {
+	double				x;
+	double				y;
+}						t_point;				
+
+typedef struct			s_range
+{
 	double				min;
 	double				max;
-}						t_point;				
+}						t_range;				
 
 typedef struct			s_cplx
 {
@@ -44,10 +50,16 @@ typedef struct			s_env
 	int					size_line;
 	int					bpp;
 	int					endian;
-	t_point				a;				
-	t_point				b;
+	t_range				a;				
+	t_range				b;
+	t_point				mouse_c;
 	int					iter_max;
+	int					palette;
+	int					he;
+	int					choice;
 }						t_env;
+
+void					fractolinit(t_env *e);
 
 /*
 ** affichage
@@ -64,12 +76,21 @@ t_cplx					cplx_add(t_cplx a, t_cplx b);
 /*
 ** fractales
 */
+int						fractolselect(char *str);
 void					mandelbrot(t_env *e);
+void					julia(t_env *e);
 
 /*
 ** controles
 */
-int						key_hook(int keycode);
+int						key_hook(int keycode, t_env *e);
 int						zoomlol(int keycode, int x, int y, t_env *e);
+int						ehloljulia(int x, int y, t_env *e);
+
+/*
+** couleurs
+*/
+int						get_color(t_env *e, int i);
+int						set_color(int r, int g, int b);
 
 #endif

@@ -6,14 +6,14 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/03 05:02:18 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/05 06:29:42 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/07 06:51:05 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	fractol
 CC			=	gcc
 CFLAGS		=	-Werror -Wall -Wextra -Ofast #-g3 -fsanitize=address
-CFLAGSMLX	=	-L minilibx -lmlx -framework OpenGL -framework AppKit
+CFLAGSMLX	=	-lmlx -framework OpenGL -framework AppKit
 
 LIB_PATH	=	libft
 LIB			=	$(LIB_PATH)/libft.a
@@ -26,8 +26,8 @@ SRC			=	fractol.c	\
 				fractales.c \
 				math.c		\
 				putpixel.c	\
-				control.c
-
+				control.c	\
+				colors.c
 
 OBJ_DIR		=	obj
 
