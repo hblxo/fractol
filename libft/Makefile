@@ -6,7 +6,7 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 04:51:21 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/01 03:34:26 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/07 06:41:57 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -41,6 +41,7 @@ SRC		=	ft_memset.c					\
 			ft_isascii.c				\
 			ft_isprint.c				\
 			ft_toupper.c				\
+			ft_strtolower.c				\
 			ft_tolower.c				\
 			ft_memalloc.c				\
 			ft_memdel.c					\
