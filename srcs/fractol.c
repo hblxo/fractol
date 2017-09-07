@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:04:53 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/07 06:44:07 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/07 07:48:30 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ int		drw(t_env *e)
 		julia(e);
 	else if (fractolselect(e->title) == 2)
 		mandelbrot(e);
+	else if (fractolselect(e->title) == 3)
+		burningship(e);
+	else if (fractolselect(e->title) == 4)
+		roberte(e);
 	else
 	{
 		write(2, "lol\n", 4);
@@ -47,6 +51,10 @@ int		fractolselect(char *str)
 		return (1);
 	else if (!ft_strcmp(ft_strtolower(str), "mandelbrot"))
 		return (2);
+	else if (!ft_strcmp(ft_strtolower(str), "burningship"))
+		return (3);
+	else if (!ft_strcmp(ft_strtolower(str), "roberte"))
+		return (4);
 	return (0);
 }
 

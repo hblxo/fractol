@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:02:39 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/07 07:01:13 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/07 07:47:33 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "mlx.h"
 # include <stdio.h>
+# include <math.h>
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 800
@@ -56,7 +57,6 @@ typedef struct			s_env
 	int					iter_max;
 	int					palette;
 	int					he;
-	int					choice;
 }						t_env;
 
 void					fractolinit(t_env *e);
@@ -71,6 +71,7 @@ void					ft_clear_image(t_env *e, int color);
 ** math
 */
 t_cplx					cplx_mult(t_cplx a, t_cplx b);
+t_cplx					cplx_mult_abs(t_cplx a, t_cplx b);
 t_cplx					cplx_add(t_cplx a, t_cplx b);
 
 /*
@@ -79,6 +80,8 @@ t_cplx					cplx_add(t_cplx a, t_cplx b);
 int						fractolselect(char *str);
 void					mandelbrot(t_env *e);
 void					julia(t_env *e);
+void					burningship(t_env *e);
+void					roberte(t_env *e);
 
 /*
 ** controles
