@@ -6,13 +6,13 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/03 05:02:18 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/08 04:39:14 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/09 00:54:38 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	fractol
 CC			=	gcc
-CFLAGS		=	-Werror -Wall -Wextra -Ofast #-g3 -fsanitize=address
+CFLAGS		=	-Werror -Wall -Wextra -Ofast
 CFLAGSMLX	=	-L minilibx -lmlx -framework OpenGL -framework AppKit
 
 LIB_PATH	=	libft

@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:04:53 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/08 04:02:36 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/09 00:55:07 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ int		drw(t_env *e)
 
 int		fractolselect(char *str)
 {
+	char	*usage;
+
+	usage = "usage : ./fractol {mandelbrot, julia, burningship, roberte}\n";
 	if (!ft_strcmp(ft_strtolower(str), "julia"))
 		return (1);
 	else if (!ft_strcmp(ft_strtolower(str), "mandelbrot"))
@@ -70,7 +73,7 @@ int		fractolselect(char *str)
 		return (4);
 	else
 	{
-		write(2, "usage : ./fractol {mandelbrot, julia, burningship, roberte}\n", 60);
+		write(2, usage, 60);
 		exit(0);
 	}
 	return (0);
@@ -88,8 +91,8 @@ int		main(int ac, char **av)
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, WIN_WIDTH, WIN_HEIGHT, e.title);
 		e.img = mlx_new_image(e.mlx, WIN_WIDTH, WIN_HEIGHT);
-		e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.size_line,
-										  &e.endian);
+		e.data = (int *)mlx_get_data_addr(e.img, &e.bpp,
+										&e.size_line, &e.endian);
 		mlx_hook(e.win, 6, 3, ehloljulia, &e);
 		mlx_hook(e.win, 2, 0, key_hook, &e);
 		mlx_hook(e.win, 17, (1L << 17), exit_cross, &e);
