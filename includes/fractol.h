@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:02:39 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/07 07:47:33 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/08 04:08:57 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include "key_macro.h"
 # include <stdio.h>
 # include <math.h>
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 800
+# define OFFSET 10
 
 typedef unsigned int	t_uint;
 
@@ -27,13 +29,13 @@ typedef struct			s_point
 {
 	double				x;
 	double				y;
-}						t_point;				
+}						t_point;
 
 typedef struct			s_range
 {
 	double				min;
 	double				max;
-}						t_range;				
+}						t_range;
 
 typedef struct			s_cplx
 {
@@ -51,12 +53,16 @@ typedef struct			s_env
 	int					size_line;
 	int					bpp;
 	int					endian;
-	t_range				a;				
+	t_range				a;
 	t_range				b;
 	t_point				mouse_c;
 	int					iter_max;
 	int					palette;
 	int					he;
+	int					pow;
+	int					choice;
+	t_point				offset;
+	int					help;
 }						t_env;
 
 void					fractolinit(t_env *e);
@@ -73,6 +79,7 @@ void					ft_clear_image(t_env *e, int color);
 t_cplx					cplx_mult(t_cplx a, t_cplx b);
 t_cplx					cplx_mult_abs(t_cplx a, t_cplx b);
 t_cplx					cplx_add(t_cplx a, t_cplx b);
+t_cplx					cplx_mult_p(t_cplx a, int i);
 
 /*
 ** fractales
@@ -88,12 +95,27 @@ void					roberte(t_env *e);
 */
 int						key_hook(int keycode, t_env *e);
 int						zoomlol(int keycode, int x, int y, t_env *e);
-int						ehloljulia(int x, int y, t_env *e);
+int						exit_cross(t_env *e);
+int						set_offset(t_env *e, int dir);
 
 /*
 ** couleurs
 */
 int						get_color(t_env *e, int i);
 int						set_color(int r, int g, int b);
+
+/*
+** init
+*/
+int						init_julia(t_env *e);
+int						init_mandelbrot(t_env *e);
+int						init_burningship(t_env *e);
+int						init_roberte(t_env *e);
+
+/*
+** help
+*/
+void					print_help(t_env *e);
+int						ehloljulia(int x, int y, t_env *e);
 
 #endif
