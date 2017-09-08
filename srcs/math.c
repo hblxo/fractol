@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 04:19:44 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/07 07:38:55 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/07 12:17:30 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ t_cplx	cplx_mult(t_cplx a, t_cplx b)
 	result.re = a.re * b.re - a.im * b.im;
 	result.im = a.im * b.re + a.re * b.im;
 	return (result);
+}
+
+t_cplx	cplx_mult_p(t_cplx a, int i)
+{
+	if (i > 2)
+		return (cplx_mult(a, cplx_mult_p(a, i - 1)));
+	else
+		return (cplx_mult(a, a));
 }
 
 t_cplx	cplx_mult_abs(t_cplx a, t_cplx b)
