@@ -6,7 +6,7 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/03 05:02:18 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/08 00:34:32 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/08 04:39:14 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -54,6 +54,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 clean:
 	make -C $(LIB_PATH) clean
 	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(LIB)
