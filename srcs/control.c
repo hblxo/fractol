@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 22:39:27 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/08 04:31:39 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/10 22:09:52 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int		key_hook(int keycode, t_env *e)
 		exit(0);
 	if (keycode == KEY_PAGE_UP)
 		e->iter_max++;
-	if (keycode == KEY_SPACEBAR && (!ft_strcmp(ft_strtolower(e->title), "julia")
-						|| (!ft_strcmp(ft_strtolower(e->title), "roberte"))))
+	if (keycode == KEY_SPACEBAR && ((e->choice == 1) || (e->choice == 4)))
 		e->he = (e->he == 0 ? 1 : 0);
 	if (keycode == KEY_TAB)
 	{

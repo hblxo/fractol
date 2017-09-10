@@ -6,7 +6,7 @@
 /*   By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 05:04:53 by hbouchet          #+#    #+#             */
-/*   Updated: 2017/09/09 00:55:07 by hbouchet         ###   ########.fr       */
+/*   Updated: 2017/09/10 22:02:53 by hbouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		main(int ac, char **av)
 		e.choice = fractolselect(e.title);
 		fractolinit(&e);
 		e.mlx = mlx_init();
-		e.win = mlx_new_window(e.mlx, WIN_WIDTH, WIN_HEIGHT, e.title);
+		e.win = mlx_new_window(e.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
 		e.img = mlx_new_image(e.mlx, WIN_WIDTH, WIN_HEIGHT);
 		e.data = (int *)mlx_get_data_addr(e.img, &e.bpp,
 										&e.size_line, &e.endian);
