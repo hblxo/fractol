@@ -6,14 +6,14 @@
 #    By: hbouchet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/03 05:02:18 by hbouchet          #+#    #+#              #
-#    Updated: 2017/09/09 00:54:38 by hbouchet         ###   ########.fr        #
+#    Updated: 2017/09/13 00:08:24 by hbouchet         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	fractol
 CC			=	gcc
 CFLAGS		=	-Werror -Wall -Wextra -Ofast
-CFLAGSMLX	=	-L minilibx -lmlx -framework OpenGL -framework AppKit
+CFLAGSMLX	=	-lmlx -framework OpenGL -framework AppKit
 
 LIB_PATH	=	libft
 LIB			=	$(LIB_PATH)/libft.a
