@@ -28,6 +28,7 @@ On runtime, this options are available :
 
 | Key | Options |
 | --- | ------- |
+| arrows | Move |
 | h   | Open a help panel |
 | c   | Change color panel (5 available) |
 | tab | Change fractal |
@@ -35,3 +36,13 @@ On runtime, this options are available :
 | page up | Add iterations, so the rendering is more precise |
 | space | In Julia Set only, block the mouse coordinates and allow to zoom in / out with the mousewheel |
 | esc | Quit |
+
+
+## Notes
+
+Please note that this is one of my first 42 School project.
+Many improvements could be implemented, such as :
+- More fractal sets
+- Multi-threading
+- Mouse drag handling
+- Cleaner code
